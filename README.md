@@ -1,6 +1,6 @@
 ## Abstract
-Modern portfolio theory(MPT) states that an investor can duild a portfolio of diverse stocks to maximize returns for a given level of risk.
-Risk can be reduced using diversification, the idea behid diversification is to split investment between varying companies so that if a few stocks one owned decrease in value, the others would not, thus reducing the loss.
+Modern portfolio theory(MPT) states that an investor can build a portfolio of diverse stocks to maximize returns for a given level of risk.
+Risk can be reduced using diversification, the idea behid diversification is to split investment between different companies so that if  price of few stocks that one owned decreases in value, the others may not if they are from other industry, thus reducing the loss.
 The plunge in a stock price can be due to various factors such as management change, global econmic decisions or company's annual report. Thus, by selecting stocks that are different from each other optimizes returns. <br/>
 As we observe two stocks in the same industry move together such as IT stocks which have similar pattern. If industry performs better they all surge together and if not they plunge, so by having stocks from different industries will be a good investment as it mitigates risk involved.<br/>
 <br/>Machine learning can be used to diversify portfolio. Therefore, a method to cluster stocks would help in efficient decision making and to have diverse portfolio.
@@ -18,6 +18,14 @@ commonly followed equity indices and is considered the best representation of th
   * Upon validating the consistency, it is found that there are few "Nan" values in the data we got from google api which needs to be fixed. I have assigned 0 to such records.<br/>
   * Then I am calculatin their historic returns and volatility and then proceed to use the **K-Means clustering**
 algorithm to divide the stocks into distinct groups based upon said returns and volatilities.
+
+Returns is calculated by multiplying the percentage change in stock price * its mean over the period * 252 days
+
+Volatility is derived by finding std deviation of percentage change 
+
+The mean is simply the average of all the data points in a given set. In investing, for example, you might want to know the mean closing price for the last 20 days. This can be obtained by adding the closing prices for each session and dividing by 20. <br/>
+Standard deviation is calculated based on the mean. The distance of each data point from the mean is squared, summed and averaged to find the variance. Or to put it another way: Variance is derived by taking the mean of the data points, subtracting the mean from each data point individually, squaring each of these results and then taking another mean of these squares. Standard deviation is simply the square root of the variance.<br/>
+
 ## Workflow
 In K-means clustering the critical part is to decide how many clusters do we want to divide our data into.<br/>
 For this purpose "Elbow Curve" is used. It is a relationship between number of clusters we select and
@@ -45,3 +53,4 @@ ensure we choose a collection of stocks with sufficient diversification between 
 T. Kanungo, D. M.Mount, N. Netanyahu, C. Piatko, R. Silverman, and A. Y. Wu, "An efficient k-means clustering algorithm: Analysis and implementation", PatternAnalysis
 and Machine Intelligence, 24 (2002), 881-892<br/>
 Modern Portfolio Theory, https://www.investopedia.com/terms/m/modernportfoliotheory.asp#ixzz59m0MvqoA 
+Standard Deviation https://www.investopedia.com/terms/s/standarddeviation.asp#ixzz5ASVjoMwj 
